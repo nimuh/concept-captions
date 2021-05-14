@@ -30,9 +30,7 @@ class ConceptCapDataset(Dataset):
             print('Could not load URL: ', self.dataframe.iloc[idx, 1])
             self.remove.append(idx)
         if im != None:
-            im = np.array(im.resize((64, 64)))
-            print(im)
-            
+            im = np.array(im.resize((64, 64))) / 255.0
         caption = self.data[idx][1]
         sample = {'img': im, 'text': caption}
         return sample
